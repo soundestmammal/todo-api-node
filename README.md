@@ -23,6 +23,24 @@ Use ES6 Destructuring Take MongoClient from MongoDB object
 
 Assign it to a constant named MongoClient
 
+Call the connect method from the newly defined Constant "MongoClient". This accepts two arguments:
+* A string where the database lives (Can be localhost, AWS, other server location).
+* A callback function will fire after connect succeeds or fails.
+
+Callback function takes two arguments
+* err
+* db
+
+The Error Argument (err) lets us know if there are any errors.
+
 ```javascript
 const { MongoClient } = require('mongodb');
+
+MongoClient.connect('mongodb://<port>/<name_of_database>', (err, db) => {
+if (err) {
+  return console.log('Unable to connect to mongodb server');
+}
+console.log('Connected to MongoDB server!')
+
+);
 ```
