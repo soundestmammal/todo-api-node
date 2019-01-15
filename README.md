@@ -40,7 +40,7 @@ MongoClient.connect('mongodb://<port>/<name_of_database>', (err, db) => {
 if (err) {
   return console.log('Unable to connect to mongodb server');
 }
-console.log('Connected to MongoDB server!')
-
+console.log('Connected to MongoDB server!');
+db.close();
 );
 ```
