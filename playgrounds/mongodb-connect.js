@@ -6,6 +6,24 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
         return console.log('Unable to connect to mongo db server');
     }
     console.log('Connected to the MongoDB server');
+    db.collection('Todos').insertOne({
+        text: 'Charge apple watch',
+        completed: false
+    },(err, result) => {
+        if (err) {
+            return console.log('There was an error adding the todo', err);
+        }
+    console.log(JSON.stringify(result.ops, undefined, 2));
+    });
+    db.collection('Users').insertOne({
+        name: 'Robert',
+        age: 23
+    }, (err, result) => {
+        if (err) {
+            return console.log('There was an error adding the todo', err);
+        }
+    console.log(JSON.stringify(result.ops, undefined, 2));
+    });
     // db.collection('Todos').find().count().then( (count)=> {
     //     console.log(`Todos Count: ${count}`);
     // }, (err) => {
